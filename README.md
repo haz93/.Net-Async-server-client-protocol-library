@@ -1,5 +1,5 @@
 # .Net-Async-server-client-protocol
-Async multi-client server written in .Net 4.5
+Async multi-client server written in C# .Net 4.5
 
 Server declaration
 ```
