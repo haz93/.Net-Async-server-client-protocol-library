@@ -10,4 +10,8 @@ The server expects a fixed 4 byte integer containing size of message followed by
 
 Server object contains an array of connected but it is adivisable to implement your own client array using OnClientConnected and OnClientDisconnected. 
 
-There is not a built in timeout function of any sorts and it is advisable that you implement your own. A simple keep-alive message that the client sends every interval of time to server should do.
+There's a built-in timeout function that will automatically disconnect un-responsive clients but it is advisable to implement your own aside from the built in routine. A simple keep-alive message that the client sends every interval of time to server should do.
+
+Gzip class in library is included but never used. If messages you're sending between client and server are large or requires a substantial time of transfer between server and client, you should probably modify the code to automatically compress and decompress data using gzip and/or append received data immediately into a file if you're transfering big files, because current implementation queues all incoming data in memory and last refrence to the data after it is been assembled in passed with OnDataRecieved().
+
+It is recommended to implement some GC in OnDataRecieved implementation. 
